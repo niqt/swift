@@ -195,3 +195,44 @@ class ClassCoordinateTraslate: PrintInfoProtocol {
         self.lon = self.lon + 1
     }
 }
+
+
+class Audio {
+    var mic: Bool
+    var voice: Bool
+    
+    init(mic: Bool, voice: Bool) {
+        self.mic = mic
+        self.voice = voice
+    }
+    
+    init() {
+        self.mic = true
+        self.voice = true
+    }
+    
+    func mute() {
+        mic = false
+    }
+    
+    func unmute() {
+        mic = true
+    }
+}
+
+class SmartPhone: Audio {
+    var touchscreen: Bool
+    var physicalKeyboard: Bool
+    init(touch: Bool, keyboard: Bool) {
+        self.physicalKeyboard = keyboard
+        self.touchscreen = touch
+        super.init(mic: true, voice: true)
+    }
+    func lockScreen() {
+        touchscreen = false
+    }
+    
+    func unLockScreen() {
+        touchscreen = true
+    }
+}

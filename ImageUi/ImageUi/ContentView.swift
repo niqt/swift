@@ -30,7 +30,9 @@ struct ContentView: View {
                     .opacity(0.8)
                     .padding(),
                     alignment: .top
+                
                 )
+            
             Spacer()
         }
     }

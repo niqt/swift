@@ -10,12 +10,16 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        ScrollView {
-            card(imageName: "sanfrancisco", text: "Bay")
-            card(imageName: "giulianova", text: "Sea")
-            card(imageName: "berkeley", text: "Library")
-            card(imageName: "stanford", text: "Church")
-            //Spacer()
+        ScrollView(.horizontal) {
+            VStack {
+                HStack {
+                    card(imageName: "sanfrancisco", text: "Bay")
+                    card(imageName: "giulianova", text: "Sea")
+                    card(imageName: "berkeley", text: "Library")
+                    card(imageName: "stanford", text: "Church")
+                }
+                Spacer()
+            }
         }
     }
 }

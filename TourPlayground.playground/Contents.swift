@@ -237,6 +237,45 @@ class SmartPhone: Audio {
     }
 }
 
+protocol PrintProtocol {
+    var simpleLabel: String {get}
+    mutating func translate()
+}
+
+class CoordinateClass: PrintProtocol {
+    var lat: Double
+    var lon: Double
+    var simpleLabel: String = ""
+    init(a: Double, b: Double)
+    {
+        self.lat = a
+        self.lon = b
+    }
+    func translate() {
+        self.lat = self.lat * 2
+        self.lon = self.lon * 2
+    }
+}
 
 
-// Exsercise write temperature converter
+
+var sanmarino = CoordinateClass(a:2, b:3)
+
+
+var vaticano = CoordinateClass(a:4, b:5)
+
+
+var newyork = CoordinateClass(a:6, b:7)
+
+
+sanmarino = vaticano
+
+print("SANMARINO \(sanmarino.lat) \(sanmarino.lon)")
+
+vaticano.lat = 300
+vaticano.lon = 500
+
+print("VATICANO \(vaticano.lat) \(vaticano.lon)")
+print("SANMARINO \(sanmarino.lat) \(sanmarino.lon)")
+
+// Exsercise change class CoordinateClass to struct and see what happen

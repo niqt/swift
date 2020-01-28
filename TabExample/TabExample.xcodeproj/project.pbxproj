@@ -17,7 +17,7 @@
 		1256CEE523DEF3D700CE31AA /* AllView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1256CEE423DEF3D700CE31AA /* AllView.swift */; };
 		1256CEE723DEF48C00CE31AA /* PlaceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1256CEE623DEF48C00CE31AA /* PlaceDetailView.swift */; };
 		12F3894823DFA00C00601106 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F3894723DFA00C00601106 /* Setting.swift */; };
-		12F3894A23DFA35A00601106 /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F3894923DFA35A00601106 /* OrderView.swift */; };
+		12F3894A23DFA35A00601106 /* SortView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F3894923DFA35A00601106 /* SortView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +33,7 @@
 		1256CEE423DEF3D700CE31AA /* AllView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllView.swift; sourceTree = "<group>"; };
 		1256CEE623DEF48C00CE31AA /* PlaceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailView.swift; sourceTree = "<group>"; };
 		12F3894723DFA00C00601106 /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
-		12F3894923DFA35A00601106 /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
+		12F3894923DFA35A00601106 /* SortView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,12 +72,12 @@
 				1256CED023DEF21600CE31AA /* SceneDelegate.swift */,
 				1256CED223DEF21600CE31AA /* ContentView.swift */,
 				1256CEE423DEF3D700CE31AA /* AllView.swift */,
+				12F3894923DFA35A00601106 /* SortView.swift */,
 				1256CEE623DEF48C00CE31AA /* PlaceDetailView.swift */,
 				1256CED423DEF21900CE31AA /* Assets.xcassets */,
 				1256CED923DEF21900CE31AA /* LaunchScreen.storyboard */,
 				1256CEDC23DEF21900CE31AA /* Info.plist */,
 				1256CED623DEF21900CE31AA /* Preview Content */,
-				12F3894923DFA35A00601106 /* OrderView.swift */,
 			);
 			path = TabExample;
 			sourceTree = "<group>";
@@ -162,7 +162,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1256CECF23DEF21600CE31AA /* AppDelegate.swift in Sources */,
-				12F3894A23DFA35A00601106 /* OrderView.swift in Sources */,
+				12F3894A23DFA35A00601106 /* SortView.swift in Sources */,
 				1256CEE723DEF48C00CE31AA /* PlaceDetailView.swift in Sources */,
 				1256CEE523DEF3D700CE31AA /* AllView.swift in Sources */,
 				1256CED123DEF21600CE31AA /* SceneDelegate.swift in Sources */,

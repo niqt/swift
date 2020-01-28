@@ -49,11 +49,9 @@ final class SettingStore: ObservableObject {
 
     var displayOrder: OrderType {
         get {
-            print(defaults.integer(forKey: "displayOrder"))
             OrderType(type: defaults.integer(forKey: "displayOrder"))
         }
      
-    
         set {
             defaults.set(newValue.rawValue, forKey: "displayOrder")
         }

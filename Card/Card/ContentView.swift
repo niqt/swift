@@ -7,18 +7,43 @@
 //
 
 import SwiftUI
+import Foundation
+
+struct Place: Identifiable {
+    var id = UUID()
+    var name: String
+    var imagename: String
+}
+
 
 struct ContentView: View {
+    var places = [Place(name: "Bay", imagename: "sanfrancisco"), Place(name: "Giulianova", imagename: "giulianova")]
+    
     var body: some View {
-        ScrollView(.horizontal) {
+        NavigationView {
             VStack {
-                HStack {
-                    card(imageName: "sanfrancisco", text: "Bay")
-                    card(imageName: "giulianova", text: "Sea")
-                    card(imageName: "berkeley", text: "Library")
-                    card(imageName: "stanford", text: "Church")
+                ScrollView() {
+                    HStack {
+                        ForEach(self.places) { place in
+                            NavigationLink(destination: DetailView()) {
+                                CardView(imageName: place.imagename, text: place.name)
+                            }
+                            .buttonStyle(PlainButtonStyle())
+                        }
+                    }
+                    //Spacer()
                 }
-                Spacer()
+                ScrollView() {
+                    VStack {
+                        ForEach(self.places) { place in
+                            NavigationLink(destination: DetailView()) {
+                                CardView(imageName: place.imagename, text: place.name)
+                            }
+                            .buttonStyle(PlainButtonStyle())
+                        }
+                    }
+                    //Spacer()
+                }
             }
         }
     }
@@ -30,7 +55,14 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-struct card: View {
+struct DetailView: View {
+    var body: some View {
+        Text("Ciao")
+    }
+}
+
+
+struct CardView: View {
     var imageName: String
     var text: String
     var body: some View {

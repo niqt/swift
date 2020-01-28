@@ -15,34 +15,43 @@ struct MainNavigationView: View {
     Place(name: "Giulianova", image: "giulianova"),
     Place(name: "Berlin", image: "berlin"),
     Place(name: "Benevento", image: "bn")]
-    
-    
-    init() {
-        let navBarAppearance = UINavigationBarAppearance()
-        navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.systemOrange, .font: UIFont(name: "ArialRoundedMTBold", size: 35)!]
-        navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.systemOrange, .font: UIFont(name: "ArialRoundedMTBold", size: 20)!]
-        UINavigationBar.appearance().standardAppearance = navBarAppearance
-        UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
-        UINavigationBar.appearance().compactAppearance = navBarAppearance
-        
-        navBarAppearance.setBackIndicatorImage(UIImage(systemName: "arrow.turn.up.left"),transitionMaskImage: UIImage(systemName: "arrow.turn.up.left"))
-        
-        UINavigationBar.appearance().tintColor = .black
-    }
-    
+  
     var body: some View {
+        
         NavigationView {
+/*
             List {
                 ForEach(places) { place in
                     NavigationLink(destination: PlaceDetailView(place: place)) {
                         BasicImageRow(place: place)
                     }
+                
                 }
                 
             }
             //.navigationBarTitle("Places")
             .navigationBarTitle("Places", displayMode: .inline)
             .listStyle(GroupedListStyle())
+ */
+        VStack() {
+                Text("Places")
+                    .font(.headline)
+                    .padding(.leading, 15)
+                    
+                
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(alignment: .top, spacing: 0) {
+                        ForEach(places) { place in
+                            NavigationLink(destination: PlaceDetailView(place: place)) {
+                                BasicImageRow(place: place)
+                            }
+                        
+                        }
+                    }
+                }
+                .frame(height: 185)
+            }
+            
         }
     }
 }
@@ -56,7 +65,7 @@ struct NavigationView_Previews: PreviewProvider {
 struct BasicImageRow: View {
     var place: Place
     var body: some View {
-        HStack {
+        VStack {
             Image(place.image)
                 .resizable()
                 .frame(width: 40, height: 40)

@@ -6,6 +6,20 @@
 //  Copyright © 2020 Nicola De FIlippo. All rights reserved.
 //
 
+/*
+ 
+
+       ?  (__)  ?
+      ?   (oo)   ?
+   /-------\/
+  / |     ||
+ *  ||----||
+    ^^    ^^
+   Where Cow
+
+ 
+ */
+
 import SwiftUI
 
 struct ContentView: View {
@@ -16,17 +30,19 @@ struct ContentView: View {
        Place(name: "Berlin", image: "berlin"),
        Place(name: "Benevento", image: "bn")]
     
+    @State var selectedView = 0
+    @EnvironmentObject var settingStore: SettingStore
     var body: some View {
-            TabView {
+            TabView(selection: $selectedView) {
                 AllView(places: places)
                     .tabItem {
                         Image(systemName: "1.circle")
-                        Text("Tutti")
+                        Text("Places")
                     }.tag(0)
-                Text("Second View")
+                OrderView()
                     .tabItem {
-                        Image(systemName: "2.circle")
-                        Text("Preferiti")
+                        Image("red")
+                        Text("Order")
                     }.tag(1)
             }
         }
@@ -34,6 +50,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
-    }
+        ContentView().environmentObject(SettingStore())    }
 }
+

@@ -10,10 +10,11 @@ import SwiftUI
 
 struct AllView: View {
     var places = Array<Place>()
+    @EnvironmentObject var settingStore: SettingStore
     var body: some View {
          NavigationView {
             List {
-                ForEach(places) { place in
+                ForEach(places.sorted(by: self.settingStore.displayOrder.predicate())) { place in
                     NavigationLink(destination: PlaceDetailView(place: place)) {
                         BasicImageRow(place: place)
                     }
@@ -24,7 +25,7 @@ struct AllView: View {
             //.navigationBarTitle("Places")
             .navigationBarTitle("Places", displayMode: .inline)
             .listStyle(GroupedListStyle())
-        }
+         }
     }
 }
 

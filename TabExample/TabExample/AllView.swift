@@ -38,7 +38,7 @@ struct AllView: View {
             .listStyle(GroupedListStyle())
          }
          .onAppear{
-             self.places.sorted(by:self.settingStore.displayOrder.predicate())
+            self.places = self.places.sorted(by:self.settingStore.displayOrder.predicate())
         }
     }
 }

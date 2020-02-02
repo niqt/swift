@@ -19,7 +19,7 @@ struct MainNavigationView: View {
     var body: some View {
         
         NavigationView {
-/*
+
             List {
                 ForEach(places) { place in
                     NavigationLink(destination: PlaceDetailView(place: place)) {
@@ -32,26 +32,6 @@ struct MainNavigationView: View {
             //.navigationBarTitle("Places")
             .navigationBarTitle("Places", displayMode: .inline)
             .listStyle(GroupedListStyle())
- */
-        VStack() {
-                Text("Places")
-                    .font(.headline)
-                    .padding(.leading, 15)
-                    
-                
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(alignment: .top, spacing: 0) {
-                        ForEach(places) { place in
-                            NavigationLink(destination: PlaceDetailView(place: place)) {
-                                BasicImageRow(place: place)
-                            }
-                        
-                        }
-                    }
-                }
-                .frame(height: 185)
-            }
-            
         }
     }
 }
@@ -65,7 +45,7 @@ struct NavigationView_Previews: PreviewProvider {
 struct BasicImageRow: View {
     var place: Place
     var body: some View {
-        VStack {
+        HStack {
             Image(place.image)
                 .resizable()
                 .frame(width: 40, height: 40)

@@ -7,9 +7,14 @@
 //
 
 import Foundation
+import CoreLocation
 
-struct Place: Identifiable, Hashable {
-    var id = UUID()
-    var name: String
-    var image: String
+struct Place: Identifiable, Equatable {
+    static func ==(lhs: Place, rhs: Place) -> Bool {
+        lhs.id == rhs.id
+    }
+    let id = UUID()
+    let name: String
+    let image: String
+    let location: CLLocationCoordinate2D
 }

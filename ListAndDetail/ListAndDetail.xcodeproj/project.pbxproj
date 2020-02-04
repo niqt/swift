@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12184FBA23E8124100FDECA2 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12184FB923E8124100FDECA2 /* MapView.swift */; };
 		121FC0C123DA4FA8004F788A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121FC0C023DA4FA8004F788A /* AppDelegate.swift */; };
 		121FC0C323DA4FA8004F788A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121FC0C223DA4FA8004F788A /* SceneDelegate.swift */; };
 		121FC0C523DA4FA8004F788A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121FC0C423DA4FA8004F788A /* ContentView.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		12184FB923E8124100FDECA2 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		121FC0BD23DA4FA8004F788A /* ListAndDetail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ListAndDetail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		121FC0C023DA4FA8004F788A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		121FC0C223DA4FA8004F788A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				121FC0C423DA4FA8004F788A /* ContentView.swift */,
 				121FC0D423DA5415004F788A /* CompleteView.swift */,
 				128F763D23DA65490013D20A /* MainNavigationView.swift */,
+				12184FB923E8124100FDECA2 /* MapView.swift */,
 				12656F1423E74252005FDB66 /* SearchView.swift */,
 				128F764123DA678F0013D20A /* PlaceDetailView.swift */,
 				128F763F23DA65710013D20A /* Place.swift */,
@@ -168,6 +171,7 @@
 				12656F1523E74252005FDB66 /* SearchView.swift in Sources */,
 				128F764223DA678F0013D20A /* PlaceDetailView.swift in Sources */,
 				121FC0C323DA4FA8004F788A /* SceneDelegate.swift in Sources */,
+				12184FBA23E8124100FDECA2 /* MapView.swift in Sources */,
 				121FC0C523DA4FA8004F788A /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,12 +9,12 @@
 import SwiftUI
 
 struct CompleteView: View {
-    var places = [Place(name: "San Francisco", image: "sanfrancisco"),
-    Place(name: "Stanford", image: "stanford"),
-    Place(name: "Berkeley", image: "berkeley"),
-    Place(name: "Giulianova", image: "giulianova"),
-    Place(name: "Berlin", image: "berlin"),
-    Place(name: "Benevento", image: "bn")]
+    var places = [Place(name: "San Francisco", image: "sanfrancisco",location: .init(latitude: -33.852222, longitude: 151.210556)),
+    Place(name: "Stanford", image: "stanford",location: .init(latitude: -33.852222, longitude: 151.210556)),
+    Place(name: "Berkeley", image: "berkeley",location: .init(latitude: -33.852222, longitude: 151.210556)),
+    Place(name: "Giulianova", image: "giulianova",location: .init(latitude: -33.852222, longitude: 151.210556)),
+    Place(name: "Berlin", image: "berlin",location: .init(latitude: -33.852222, longitude: 151.210556)),
+    Place(name: "Benevento", image: "bn",location: .init(latitude: -33.852222, longitude: 151.210556))]
     
     var body: some View {
         // List(places, id: \.name) { place in

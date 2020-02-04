@@ -9,12 +9,12 @@
 import SwiftUI
 
 struct MainNavigationView: View {
-    var places = [Place(name: "San Francisco", image: "sanfrancisco"),
-                  Place(name: "Stanford", image: "stanford"),
-                  Place(name: "Berkeley", image: "berkeley"),
-                  Place(name: "Giulianova", image: "giulianova"),
-                  Place(name: "Berlin", image: "berlin"),
-                  Place(name: "Benevento", image: "bn")]
+    var places = [Place(name: "San Francisco", image: "sanfrancisco", location: .init(latitude: 37.8199, longitude: -122.4783)),
+                  Place(name: "Stanford", image: "stanford", location: .init(latitude: 37.4275, longitude: -122.1697)),
+                  Place(name: "Berkeley", image: "berkeley", location: .init(latitude: 37.8715, longitude: -122.2730)),
+                  Place(name: "Giulianova", image: "giulianova", location: .init(latitude: 42.7538, longitude: 13.9665)),
+                  Place(name: "Berlin", image: "berlin", location: .init(latitude: 52.5200, longitude: 13.4050)),
+                  Place(name: "Benevento", image: "bn", location: .init(latitude: 41.1298, longitude: 14.7826))]
     
     @State private var searchTerm : String = ""
     
@@ -35,7 +35,7 @@ struct MainNavigationView: View {
                     ForEach(self.places.filter {
                         self.searchTerm.isEmpty ? true : $0.name.localizedStandardContains(self.searchTerm)
                     }) { place in
-                        NavigationLink(destination: PlaceDetailView(place: place)) {
+                        NavigationLink(destination: PlaceDetailView(place: place, places: [place])) {
                             BasicImageRow(place: place)
                         }
                     }
@@ -48,7 +48,7 @@ struct MainNavigationView: View {
             }
             .navigationBarItems(trailing:
                 
-                NavigationLink(destination: PlaceDetailView(place: Place(name: "", image: ""))) {
+                NavigationLink(destination: PlaceDetailView(place: Place(name: "", image: "", location: .init(latitude: -33.852222, longitude: 151.210556)))) {
                     Image(systemName: "plus.app")
                 }
             )

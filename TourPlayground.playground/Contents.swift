@@ -27,13 +27,16 @@ var nameYear: (name: String, years: Int)
 nameYear.years = 49
 nameYear.name = "Bob"
 
+//nameYear.0
+
 var vector: Array<Int>
 
 vector = Array<Int>()
 
 vector.append(3)
+vector.append(4)
 
-for i in 0..<vector.count {
+for i in (0..<vector.count).reversed() {
     print("Vector[\(i)] = \(vector[i])")
 }
 
@@ -59,12 +62,6 @@ for value in dict.values {
     print(value)
 }
 
-func simplePrint() {
-    print("You are a geek")
-}
-
-simplePrint()
-
 var counter = 10
 while counter > 0 {
     print(counter)
@@ -75,6 +72,13 @@ repeat {
     print(counter)
     counter = counter + 1
 } while counter < 10
+
+func simplePrint() {
+    print("You are a geek")
+}
+
+simplePrint()
+
 
 func nameLastName(name a: String, lastname b: String ) {
     print("Name \(a) Lastname \(b)")
@@ -168,7 +172,32 @@ class ClassCoordinate {
         lat = lon
         lon = dum
     }
+    
+    func coord() -> String {
+        return ("(\(lat),\(lon))")
+    }
 }
+
+var coordA = Coordinate(lat: 37.3382, long: 121.8863)
+var coordB = Coordinate(lat: 37.3382, long: 121.8864)
+var coordC = Coordinate(lat: 37.3382, long: 121.8865)
+
+print("Point A \(coordA) Point B \(coordB)")
+coordA = coordB
+print("Point A \(coordA) Point B \(coordB)")
+coordB = coordC
+print("Point A \(coordA) Point B \(coordB)")
+
+var coordClassA = ClassCoordinate(lat: 37.3382, lon: 121.8863)
+var coordClassB = ClassCoordinate(lat: 37.3382, lon: 121.8864)
+var coordClassC = ClassCoordinate(lat: 37.3382, lon: 121.8865)
+
+print("Point A \(coordClassA.coord()) Point B \(coordClassB.coord())")
+coordClassA = coordClassB
+print("Point A \(coordClassA.coord()) Point B \(coordClassB.coord())")
+coordClassB.lat = 1
+coordClassB.lon = 2
+print("Point A \(coordClassA.coord()) Point B \(coordClassB.coord())")
 
 protocol PrintInfoProtocol {
     var simpleLabel: String { get }
@@ -246,6 +275,7 @@ class CoordinateClass: PrintProtocol {
     var lat: Double
     var lon: Double
     var simpleLabel: String = ""
+    
     init(a: Double, b: Double)
     {
         self.lat = a

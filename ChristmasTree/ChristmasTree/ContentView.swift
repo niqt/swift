@@ -7,6 +7,39 @@
 
 import SwiftUI
 
+import AVFoundation
+
+@Observable
+class AudioPlayerViewModel {
+  var audioPlayer: AVAudioPlayer?
+
+  var isPlaying = false
+
+  init() {
+    if let sound = Bundle.main.path(forResource: "silent", ofType: "mp3") {
+      do {
+        self.audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound))
+      } catch {
+        print("AVAudioPlayer could not be instantiated.")
+      }
+    } else {
+      print("Audio file could not be found.")
+    }
+  }
+
+  func playOrPause() {
+    guard let player = audioPlayer else { return }
+
+    if player.isPlaying {
+      player.pause()
+      isPlaying = false
+    } else {
+      player.play()
+      isPlaying = true
+    }
+  }
+}
+
 struct ContentView: View {
     var widths = [280, 300, 320]
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -14,7 +47,8 @@ struct ContentView: View {
     var stars = ["star", "star.fill"]
     @State var indexStar = 0
     @State var currentColors = [Color]( repeating: .gray, count: 22 )
-
+    @State var audioPlayerViewModel = AudioPlayerViewModel()
+    
     var body: some View {
         ZStack {
             Color.black.frame(maxWidth: .infinity, maxHeight: .infinity).opacity(0.9).edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
@@ -39,6 +73,10 @@ struct ContentView: View {
         }.onReceive(timer) { _ in
             shuffleColor()
             self.indexStar = (self.indexStar + 1) % 2
+        }.onAppear {
+            audioPlayerViewModel.playOrPause()
+        }.onTapGesture {
+            audioPlayerViewModel.playOrPause()
         }
     }
     
